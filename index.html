@@ -1,0 +1,798 @@
+<!doctype html>
+<html lang="pt-BR">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Travessia Fácil — Termos de Uso e Política de Privacidade</title>
+      <style>
+         @import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap");
+
+         :root {
+            --navy-950: #0d2136;
+            --navy-800: #173a56;
+            --navy-700: #204a6b;
+            --teal-600: #2c7873;
+            --teal-500: #3d948d;
+            --paper: #eef3f3;
+            --paper-2: #ffffff;
+            --ink-900: #132029;
+            --ink-700: #3a4a52;
+            --ink-500: #66787f;
+            --line: #d3e0e0;
+            --amber: #dd9c4f;
+            --radius: 2px;
+         }
+
+         * {
+            box-sizing: border-box;
+         }
+         html {
+            scroll-behavior: smooth;
+         }
+
+         body {
+            margin: 0;
+            background: var(--paper);
+            color: var(--ink-900);
+            font-family: "Inter", system-ui, sans-serif;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+         }
+
+         /* ---------- Top bar ---------- */
+         .topbar {
+            background: var(--navy-950);
+            color: #dce8ec;
+            padding: 22px clamp(20px, 5vw, 64px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+         }
+         .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: "Source Serif 4", Georgia, serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+         }
+         .brand svg {
+            flex-shrink: 0;
+         }
+         .topbar .updated {
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #9db4bd;
+         }
+
+         /* ---------- Layout ---------- */
+         .layout {
+            display: grid;
+            grid-template-columns: 260px minmax(0, 760px);
+            justify-content: center;
+            gap: clamp(24px, 5vw, 72px);
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 56px 24px 120px;
+         }
+
+         /* ---------- Sidebar / crossing indicator ---------- */
+         .sidebar {
+            position: sticky;
+            top: 96px;
+            align-self: start;
+            height: calc(100vh - 160px);
+            min-height: 420px;
+            display: flex;
+            flex-direction: column;
+         }
+         .shore {
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--ink-500);
+         }
+         .shore strong {
+            display: block;
+            font-family: "Source Serif 4", Georgia, serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--navy-950);
+            text-transform: none;
+            letter-spacing: 0;
+            margin-top: 2px;
+         }
+         .crossing {
+            position: relative;
+            flex: 1;
+            margin: 20px 3px;
+            width: 2px;
+            background: repeating-linear-gradient(
+               to bottom,
+               var(--line) 0 6px,
+               transparent 6px 12px
+            );
+         }
+         .crossing::before,
+         .crossing::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--navy-950);
+         }
+         .crossing::before {
+            top: -4px;
+         }
+         .crossing::after {
+            bottom: -4px;
+         }
+         .boat {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--paper);
+            transition: top 0.15s linear;
+         }
+         .boat svg {
+            width: 20px;
+            height: 20px;
+         }
+
+         nav.toc {
+            margin-top: 28px;
+         }
+         nav.toc a {
+            display: block;
+            font-size: 0.86rem;
+            color: var(--ink-700);
+            text-decoration: none;
+            padding: 5px 0;
+            border-left: 2px solid transparent;
+            padding-left: 12px;
+            margin-left: -13px;
+            transition:
+               color 0.15s,
+               border-color 0.15s;
+         }
+         nav.toc a:hover {
+            color: var(--navy-950);
+         }
+         nav.toc a.active {
+            color: var(--teal-600);
+            border-left-color: var(--teal-600);
+            font-weight: 600;
+         }
+         nav.toc .group-label {
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.68rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--ink-500);
+            margin: 18px 0 4px;
+         }
+         nav.toc .group-label:first-child {
+            margin-top: 0;
+         }
+
+         /* ---------- Main content ---------- */
+         main {
+            min-width: 0;
+         }
+
+         .doc-header {
+            margin-bottom: 52px;
+         }
+         .doc-header .eyebrow {
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--teal-600);
+            margin: 0 0 10px;
+         }
+         .doc-header h1 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-size: clamp(1.9rem, 4vw, 2.6rem);
+            line-height: 1.15;
+            margin: 0 0 14px;
+            color: var(--navy-950);
+         }
+         .doc-header p.intro {
+            color: var(--ink-700);
+            font-size: 1.02rem;
+            max-width: 56ch;
+            margin: 0;
+         }
+
+         section.doc-part {
+            margin-bottom: 64px;
+         }
+
+         .part-title {
+            display: flex;
+            align-items: baseline;
+            gap: 14px;
+            padding-bottom: 14px;
+            margin-bottom: 34px;
+            border-bottom: 1px solid var(--line);
+         }
+         .part-title .tag {
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.05em;
+            color: var(--paper-2);
+            background: var(--navy-950);
+            padding: 4px 9px;
+            border-radius: var(--radius);
+            text-transform: uppercase;
+            white-space: nowrap;
+         }
+         .part-title h2 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-size: 1.55rem;
+            margin: 0;
+            color: var(--navy-950);
+         }
+
+         article.clause {
+            margin-bottom: 30px;
+            scroll-margin-top: 96px;
+         }
+         article.clause h3 {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            font-family: "Inter", sans-serif;
+            font-weight: 600;
+            font-size: 1.04rem;
+            color: var(--ink-900);
+            margin: 0 0 10px;
+         }
+         article.clause h3 .num {
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.82rem;
+            color: var(--teal-600);
+            font-weight: 500;
+         }
+         article.clause p {
+            margin: 0 0 12px;
+            color: var(--ink-700);
+            font-size: 0.98rem;
+         }
+         article.clause ul {
+            margin: 0 0 12px;
+            padding-left: 20px;
+            color: var(--ink-700);
+            font-size: 0.98rem;
+         }
+         article.clause li {
+            margin-bottom: 7px;
+         }
+         article.clause strong {
+            color: var(--ink-900);
+         }
+         article.clause code {
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.85em;
+            background: #e2ecec;
+            padding: 1px 5px;
+            border-radius: var(--radius);
+         }
+
+         .callout {
+            border-left: 3px solid var(--amber);
+            background: #fbf3e8;
+            padding: 14px 18px;
+            border-radius: var(--radius);
+            font-size: 0.92rem;
+            color: #6b4d20;
+            margin: 0 0 30px;
+         }
+
+         .fill-in {
+            background: #fbf3e8;
+            color: #8a5a12;
+            padding: 1px 6px;
+            border-radius: var(--radius);
+            font-size: 0.92em;
+         }
+
+         /* wave divider signature */
+         .wave-divider {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin: 60px 0 56px;
+            color: var(--teal-600);
+         }
+         .wave-divider svg {
+            flex: 1;
+            height: 20px;
+            width: 100%;
+         }
+         .wave-divider span {
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--ink-500);
+            white-space: nowrap;
+         }
+
+         footer.doc-footer {
+            border-top: 1px solid var(--line);
+            padding-top: 24px;
+            color: var(--ink-500);
+            font-size: 0.85rem;
+         }
+
+         @media (max-width: 860px) {
+            .layout {
+               grid-template-columns: 1fr;
+            }
+            .sidebar {
+               display: none;
+            }
+         }
+
+         @media print {
+            .topbar,
+            .sidebar {
+               display: none;
+            }
+            body {
+               background: #fff;
+            }
+         }
+      </style>
+   </head>
+   <body>
+      <div class="topbar">
+         <div class="brand">
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+               <circle
+                  cx="13"
+                  cy="13"
+                  r="12"
+                  stroke="#3d948d"
+                  stroke-width="1.4"
+               />
+               <path
+                  d="M4 15.5C6.5 13 9 17 13 14.5C17 12 19.5 16 22 13.5"
+                  stroke="#dce8ec"
+                  stroke-width="1.4"
+                  stroke-linecap="round"
+               />
+            </svg>
+            Travessia Fácil
+         </div>
+         <div class="updated">
+            Atualizado em
+            <span
+               class="fill-in"
+               style="background: transparent; color: #9db4bd; padding: 0"
+               >01/08/2026</span
+            >
+         </div>
+      </div>
+
+      <div class="layout">
+         <aside class="sidebar">
+            <div class="shore">
+               São Sebastião
+               <strong>Termos de Uso</strong>
+            </div>
+
+            <div class="crossing">
+               <div class="boat" id="boat">
+                  <svg viewBox="0 0 24 24" fill="none">
+                     <path
+                        d="M4 15h16l-2 5H6l-2-5Z"
+                        stroke="#173a56"
+                        stroke-width="1.5"
+                        stroke-linejoin="round"
+                     />
+                     <path
+                        d="M12 15V6M12 6l4 3M12 6 8 9"
+                        stroke="#173a56"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                     />
+                  </svg>
+               </div>
+            </div>
+
+            <div class="shore" style="text-align: right">
+               Ilhabela
+               <strong>Política de Privacidade</strong>
+            </div>
+
+            <nav class="toc">
+               <p class="group-label">Termos de uso</p>
+               <a href="#t1">1. Sobre o aplicativo</a>
+               <a href="#t2">2. Ausência de vínculo oficial</a>
+               <a href="#t3">3. Natureza informativa dos dados</a>
+               <a href="#t4">4. Limitação de responsabilidade</a>
+               <a href="#t5">5. Uso adequado</a>
+               <a href="#t6">6. Alterações nos termos</a>
+               <a href="#t7">7. Contato</a>
+
+               <p class="group-label">Política de privacidade</p>
+               <a href="#p1">1. Compromisso com a privacidade</a>
+               <a href="#p2">2. Dados que coletamos</a>
+               <a href="#p3">3. Como usamos os dados</a>
+               <a href="#p4">4. Compartilhamento com terceiros</a>
+               <a href="#p5">5. Armazenamento e segurança</a>
+               <a href="#p6">6. Direitos do usuário (LGPD)</a>
+               <a href="#p7">7. Crianças e adolescentes</a>
+               <a href="#p8">8. Alterações nesta política</a>
+               <a href="#p9">9. Contato</a>
+            </nav>
+         </aside>
+
+         <main>
+            <div class="doc-header">
+               <p class="eyebrow">Travessia Fácil</p>
+               <h1>Termos de Uso e Política de Privacidade</h1>
+               <p class="intro">
+                  Informações claras sobre como o aplicativo funciona, de onde
+                  vêm os dados exibidos e o que fazemos — e não fazemos — com
+                  informações do seu dispositivo.
+               </p>
+            </div>
+
+            <!-- ============ TERMOS DE USO ============ -->
+            <section class="doc-part" id="termos">
+               <div class="part-title">
+                  <span class="tag">Parte 1</span>
+                  <h2>Termos de Uso</h2>
+               </div>
+
+               <article class="clause" id="t1">
+                  <h3><span class="num">1.</span> Sobre o aplicativo</h3>
+                  <p>
+                     O <strong>Travessia Fácil</strong> é um aplicativo
+                     independente que exibe informações sobre os horários e o
+                     status das travessias entre São Sebastião e Ilhabela. Os
+                     dados apresentados são obtidos a partir de raspagem
+                     (scraping) do site público da Semil (Secretaria de Meio
+                     Ambiente, Infraestrutura e Logística do Estado de São
+                     Paulo) e são disponibilizados apenas para fins
+                     informativos.
+                  </p>
+               </article>
+
+               <article class="clause" id="t2">
+                  <h3>
+                     <span class="num">2.</span> Ausência de vínculo oficial
+                  </h3>
+                  <p>
+                     O Travessia Fácil
+                     <strong>não é um aplicativo oficial</strong> da Semil, do
+                     Governo do Estado de São Paulo, da DERSA ou de qualquer
+                     órgão público responsável pela operação das balsas.
+                     Trata-se de um projeto independente, desenvolvido por
+                     gavarrondevs-team, sem qualquer afiliação, parceria ou
+                     endosso por parte dessas entidades.
+                  </p>
+               </article>
+
+               <article class="clause" id="t3">
+                  <h3>
+                     <span class="num">3.</span> Natureza informativa dos dados
+                  </h3>
+                  <ul>
+                     <li>
+                        As informações de horários, tempos de espera e imagens
+                        de câmeras são extraídas de fontes públicas de terceiros
+                        e repassadas ao usuário sem alterações de conteúdo.
+                     </li>
+                     <li>
+                        Os dados podem estar desatualizados, incompletos,
+                        incorretos ou temporariamente indisponíveis, seja por
+                        instabilidade da fonte original, falhas técnicas do
+                        processo de raspagem ou manutenção do serviço.
+                     </li>
+                  </ul>
+                  <div class="callout">
+                     O usuário não deve tomar decisões de viagem baseando-se
+                     exclusivamente no aplicativo. Recomenda-se sempre confirmar
+                     horários e condições diretamente com a fonte oficial ou no
+                     local do embarque antes de se deslocar.
+                  </div>
+               </article>
+
+               <article class="clause" id="t4">
+                  <h3>
+                     <span class="num">4.</span> Limitação de responsabilidade
+                  </h3>
+                  <p>
+                     Na máxima extensão permitida pela legislação aplicável, os
+                     desenvolvedores do Travessia Fácil não se responsabilizam
+                     por:
+                  </p>
+                  <ul>
+                     <li>
+                        Atrasos, perdas de embarque, prejuízos financeiros ou
+                        transtornos decorrentes do uso das informações exibidas
+                        no app;
+                     </li>
+                     <li>
+                        Indisponibilidade temporária ou permanente do aplicativo
+                        ou de suas funcionalidades;
+                     </li>
+                     <li>
+                        Imprecisões nos dados repassados a partir da fonte
+                        pública consultada.
+                     </li>
+                  </ul>
+                  <p>
+                     O aplicativo é fornecido "como está" (as is), sem garantias
+                     de qualquer tipo, expressas ou implícitas.
+                  </p>
+               </article>
+
+               <article class="clause" id="t5">
+                  <h3><span class="num">5.</span> Uso adequado</h3>
+                  <p>
+                     O usuário compromete-se a utilizar o aplicativo apenas para
+                     fins pessoais e lícitos, não sendo permitido tentar burlar,
+                     sobrecarregar ou explorar indevidamente a infraestrutura do
+                     app ou dos serviços de terceiros por ele consultados.
+                  </p>
+               </article>
+
+               <article class="clause" id="t6">
+                  <h3><span class="num">6.</span> Alterações nos termos</h3>
+                  <p>
+                     Estes termos podem ser atualizados a qualquer momento, para
+                     refletir mudanças no funcionamento do app ou na legislação
+                     aplicável. A versão vigente estará sempre disponível dentro
+                     do aplicativo.
+                  </p>
+               </article>
+
+               <article class="clause" id="t7">
+                  <h3><span class="num">7.</span> Contato</h3>
+                  <p>
+                     Dúvidas, sugestões ou solicitações podem ser enviadas por
+                     meio de
+                     <span class="fill-in">gavarron.dev@gmail.com</span>.
+                  </p>
+               </article>
+            </section>
+
+            <div class="wave-divider" aria-hidden="true">
+               <span>Da margem continental à ilha</span>
+               <svg viewBox="0 0 400 20" preserveAspectRatio="none">
+                  <path
+                     d="M0 10 C 20 0, 40 20, 60 10 C 80 0, 100 20, 120 10 C 140 0, 160 20, 180 10 C 200 0, 220 20, 240 10 C 260 0, 280 20, 300 10 C 320 0, 340 20, 360 10 C 380 0, 400 20, 400 10"
+                     stroke="currentColor"
+                     stroke-width="1.4"
+                     fill="none"
+                  />
+               </svg>
+            </div>
+
+            <!-- ============ PRIVACIDADE ============ -->
+            <section class="doc-part" id="privacidade">
+               <div class="part-title">
+                  <span class="tag">Parte 2</span>
+                  <h2>Política de Privacidade</h2>
+               </div>
+
+               <article class="clause" id="p1">
+                  <h3>
+                     <span class="num">1.</span> Compromisso com a privacidade
+                  </h3>
+                  <p>
+                     O Travessia Fácil foi desenvolvido com o objetivo de exigir
+                     o mínimo possível de dados pessoais para funcionar. Esta
+                     política explica quais informações são tratadas e como.
+                  </p>
+               </article>
+
+               <article class="clause" id="p2">
+                  <h3><span class="num">2.</span> Dados que coletamos</h3>
+                  <p>
+                     <strong
+                        >a) Dados de uso do serviço de horários (sem
+                        cadastro)</strong
+                     ><br />Para consultar os horários das travessias, o
+                     aplicativo se comunica com nosso servidor (<code
+                        >/api/tempos</code
+                     >
+                     e <code>/api/stream</code>), que apenas repassa o último
+                     snapshot público coletado da Semil. Essa consulta não exige
+                     login, cadastro ou identificação pessoal.
+                  </p>
+                  <p>
+                     <strong>b) Dados técnicos automáticos</strong><br />Como em
+                     qualquer aplicativo, podem ser registrados automaticamente
+                     dados técnicos básicos (por exemplo, tipo de dispositivo,
+                     versão do sistema operacional, logs de erro) com a
+                     finalidade exclusiva de manter a estabilidade e corrigir
+                     falhas do serviço.
+                  </p>
+                  <p>
+                     <strong>c) Dados que NÃO coletamos</strong><br />O
+                     Travessia Fácil não solicita nome, e-mail, CPF, localização
+                     precisa em tempo real, contatos, fotos ou qualquer outro
+                     dado sensível para seu funcionamento básico. O app também
+                     não utiliza notificações push nem exibe anúncios.
+                  </p>
+               </article>
+
+               <article class="clause" id="p3">
+                  <h3><span class="num">3.</span> Como usamos os dados</h3>
+                  <p>
+                     Os dados técnicos coletados automaticamente são usados
+                     exclusivamente para:
+                  </p>
+                  <ul>
+                     <li>Fornecer e manter o funcionamento do aplicativo;</li>
+                     <li>Diagnosticar e corrigir problemas técnicos.</li>
+                  </ul>
+                  <p>
+                     Não realizamos venda, aluguel ou compartilhamento de dados
+                     pessoais com terceiros para fins publicitários.
+                  </p>
+               </article>
+
+               <article class="clause" id="p4">
+                  <h3>
+                     <span class="num">4.</span> Compartilhamento com terceiros
+                  </h3>
+                  <p>
+                     O aplicativo consulta dados públicos disponibilizados pelo
+                     site da Semil. Essa consulta é feita pelo nosso servidor,
+                     não pelo dispositivo do usuário diretamente — ou seja, a
+                     Semil não recebe dados dos usuários do app nesse processo.
+                     Serviços de infraestrutura, como provedores de hospedagem,
+                     podem processar dados técnicos estritamente para viabilizar
+                     o funcionamento do app.
+                  </p>
+               </article>
+
+               <article class="clause" id="p5">
+                  <h3><span class="num">5.</span> Armazenamento e segurança</h3>
+                  <p>
+                     Os dados de horários das travessias ficam armazenados
+                     temporariamente em nosso servidor
+                     (<code>data/time.json</code>) apenas para exibição do
+                     snapshot mais recente, sendo sobrescritos periodicamente
+                     pelo worker de raspagem. Adotamos medidas técnicas
+                     razoáveis para proteger as informações tratadas contra
+                     acesso não autorizado.
+                  </p>
+               </article>
+
+               <article class="clause" id="p6">
+                  <h3>
+                     <span class="num">6.</span> Direitos do usuário (LGPD)
+                  </h3>
+                  <p>
+                     Nos termos da Lei Geral de Proteção de Dados (Lei nº
+                     13.709/2018), caso qualquer dado pessoal venha a ser
+                     tratado, o usuário tem direito a solicitar, a qualquer
+                     momento:
+                  </p>
+                  <ul>
+                     <li>Confirmação da existência de tratamento;</li>
+                     <li>Acesso, correção ou exclusão dos dados;</li>
+                     <li>Revogação do consentimento, quando aplicável.</li>
+                  </ul>
+                  <p>
+                     Solicitações podem ser feitas por meio de
+                     <span class="fill-in"
+                        >[inserir e-mail/canal de contato]</span
+                     >.
+                  </p>
+               </article>
+
+               <article class="clause" id="p7">
+                  <h3><span class="num">7.</span> Crianças e adolescentes</h3>
+                  <p>
+                     O aplicativo não é direcionado a crianças e não coleta
+                     intencionalmente dados de menores de idade.
+                  </p>
+               </article>
+
+               <article class="clause" id="p8">
+                  <h3><span class="num">8.</span> Alterações nesta política</h3>
+                  <p>
+                     Esta política pode ser atualizada periodicamente.
+                     Recomendamos revisitar esta página regularmente. Alterações
+                     significativas serão comunicadas dentro do aplicativo.
+                  </p>
+               </article>
+
+               <article class="clause" id="p9">
+                  <h3><span class="num">9.</span> Contato</h3>
+                  <p>
+                     Para exercer seus direitos ou esclarecer dúvidas sobre esta
+                     política, entre em contato pelo canal:
+                     <span class="fill-in"
+                        >gavarron.dev@gmail.com</span
+                     >.
+                  </p>
+               </article>
+            </section>
+
+            <footer class="doc-footer">
+               Travessia Fácil — documento gerado para uso no site e/ou dentro
+               do aplicativo. Substitua os campos destacados em laranja antes de
+               publicar.
+            </footer>
+         </main>
+      </div>
+
+      <script>
+         // Move o barquinho ao longo da linha conforme o progresso de leitura do documento
+         const boat = document.getElementById("boat");
+         const crossingTrack = document.querySelector(".crossing");
+         const tocLinks = document.querySelectorAll("nav.toc a");
+         const clauses = document.querySelectorAll("article.clause");
+
+         function updateBoat() {
+            const doc = document.documentElement;
+            const scrollTop = doc.scrollTop || document.body.scrollTop;
+            const scrollHeight =
+               (doc.scrollHeight || document.body.scrollHeight) -
+               doc.clientHeight;
+            const progress =
+               scrollHeight > 0
+                  ? Math.min(Math.max(scrollTop / scrollHeight, 0), 1)
+                  : 0;
+            const trackHeight = crossingTrack.clientHeight;
+            boat.style.top = progress * trackHeight + "px";
+         }
+
+         function updateActiveLink() {
+            let currentId = clauses[0] ? clauses[0].id : null;
+            const offset = 110;
+            clauses.forEach((clause) => {
+               const rect = clause.getBoundingClientRect();
+               if (rect.top - offset <= 0) {
+                  currentId = clause.id;
+               }
+            });
+            tocLinks.forEach((link) => {
+               link.classList.toggle(
+                  "active",
+                  link.getAttribute("href") === "#" + currentId,
+               );
+            });
+         }
+
+         function onScroll() {
+            updateBoat();
+            updateActiveLink();
+         }
+
+         window.addEventListener("scroll", onScroll, { passive: true });
+         window.addEventListener("resize", updateBoat);
+         onScroll();
+      </script>
+   </body>
+</html>
